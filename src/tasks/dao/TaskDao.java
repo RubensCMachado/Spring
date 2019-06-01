@@ -60,7 +60,7 @@ public class TaskDao {
 	private Task populaTask(ResultSet rs) throws SQLException {
 		Task task = new Task();
 		//popula o objeto task
-		task.setId(rs.getLong("id"));
+		task.setid(rs.getLong("id"));
 		task.setDescricao(rs.getString("descricao"));
 		task.setFinalizada(rs.getBoolean("finalizada"));
 		//popula a data de finalizacao da task, fazendo a conversao
@@ -75,14 +75,14 @@ public class TaskDao {
 
 
 	public void exclui(Task task) {
-		if(task.getId() == null) {
+		if(task.getid() == null) {
 			throw new IllegalStateException("Id da task não deve ser nula.");
 		}
 		String sql = "delete from tasks where id = ?";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, task.getId());
+			stmt.setLong(1, task.getid());
 			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -118,7 +118,7 @@ public class TaskDao {
 			stmt.setString(1, task.getDescricao());
 			stmt.setBoolean(2, task.isFinalizada());
 			stmt.setDate(3, task.getDataFinalizacao() != null ? new Date(task.getDataFinalizacao().getTimeInMillis()) : null);
-			stmt.setLong(4, task.getId());
+			stmt.setLong(4, task.getid());
 			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

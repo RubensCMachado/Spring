@@ -11,12 +11,12 @@ public class Task {
 	@Size(min=3, message="A descrição deve ter pelo menos 3 caracteres")
 	private String descricao;
 	private boolean finalizada;
-	private Calendar dataFinalização;
+	private Calendar dataFinalizacao;
 	
-	public Long getId() {
+	public Long getid() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setid(Long id) {
 		this.id = id;
 	}
 	public String getDescricao() {
@@ -32,10 +32,10 @@ public class Task {
 		this.finalizada = finalizada;
 	}
 	public Calendar getDataFinalizacao() {
-		return dataFinalização;
+		return dataFinalizacao;
 	}
 	public void setDataFinalizacao(Calendar dataFinalização) {
-		this.dataFinalização = dataFinalização;
+		this.dataFinalizacao = dataFinalização;
 	}
 
 }
