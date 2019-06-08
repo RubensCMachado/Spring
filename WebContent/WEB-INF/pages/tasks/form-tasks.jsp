@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
+<link type="text/css" href="resources/css/tasks.css" rel="stylesheet"></link>
 <meta charset="ISO-8859-1">
 <title>Cadastra Task</title>
 </head>

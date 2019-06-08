@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Task Cadastrada</h1>
-<a href="gettasks">Listar tasks</a>
+ <h2>Seja bem vindo ao portal: ${usuariologado.login}</h2>
+ <a href="gettasks">Clique para exibir as tasks</a>
+ <br /><br /><br />
+ <a href="logout">Logout</a>
 </body>
 </html>

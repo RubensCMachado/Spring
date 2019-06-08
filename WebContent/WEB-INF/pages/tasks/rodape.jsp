@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Task Cadastrada</h1>
-<a href="gettasks">Listar tasks</a>
+	<h2><a href="logout">sair</a></h2>
 </body>
 </html>

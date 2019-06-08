@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
+<link type="text/css" href="resources/css/tasks.css" rel="stylesheet"></link>
 <meta charset="ISO-8859-1">
 <title>Editar Task</title>
 </head>
@@ -13,7 +14,7 @@
 		<textarea rows="5" cols="100" name="descricao">${task.descricao}</textarea>
 		<br />Finalizada? <input type="checkbox" name="finalizada" value="true" ${task.finalizada ? 'checked' : '' } />
 		<br /> Data de Finalização <br /> 
-		<input type="text" name="datafinalizacao" value="<fmt:formatDate value="${task.dataFinalizacao.time}" pattern="dd/MM/yyyy"/>" /> 
+		<input type="text" name="dataFinalizacao" value="<fmt:formatDate value="${task.dataFinalizacao.time}" pattern="dd/MM/yyyy"/>" /> 
 		<input type="submit" value="Editar">	
 	</form>
 </body>
