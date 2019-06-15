@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet"></link>
 	<script type="text/javascript" src="resources/js/jquery.js"></script>
 <title>Insert title here</title>
 </head>
@@ -12,9 +13,11 @@
 	<script type="text/javascript">
 		
 		function finalizar(id) {			
-			$.post("finalizatask", {'id' : id}, function(){
+			$.post("finalizatask", {'id' : id}, function(response){
 				$("#task_"+id).html("Finalizada")
-				<!-- location.reload(true); -->
+				$("#task_data_"+id).html(response)
+				<!-- alert(response); -->
+				<!--location.reload(true);			-->
 			});			
 		}
 	
@@ -41,7 +44,7 @@
 		<c:if test="${task.finalizada eq true}">
 			<td>Finalizada</td>
 		</c:if>
-		<td>
+		<td id="task_data_${task.id}">
 			<fmt:formatDate value="${task.dataFinalizacao.time}" pattern="dd/MM/yyyy"/>
 		</td>
 		<td><a href="buscartask?id=${task.id}">Editar</a></td>

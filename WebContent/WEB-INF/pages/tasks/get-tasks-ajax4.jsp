@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet"></link>
 	<script type="text/javascript" src="resources/js/jquery.js"></script>
 <title>Insert title here</title>
 </head>
@@ -12,9 +13,9 @@
 	<script type="text/javascript">
 		
 		function finalizar(id) {			
-			$.post("finalizatask", {'id' : id}, function(){
-				$("#task_"+id).html("Finalizada")
-				<!-- location.reload(true); -->
+			$.post("finalizatask", {'id' : id}, function(response){
+				$("#task_"+id).html(response);
+				<!-- alert(response); -->
 			});			
 		}
 	
@@ -32,11 +33,11 @@
 		<th>Excluir</th>
 	</tr>
 	<c:forEach items="${tasks}" var="task">
-	<tr>
+	<tr id="task_${task.id}">
 		<td>${task.id}</td>
 		<td>${task.descricao}</td>
 		<c:if test="${task.finalizada eq false}">
-			<td id="task_${task.id}"><a href="#" onclick="finalizar(${task.id})">Finalizar</a></td>
+			<td><a href="#" onclick="finalizar(${task.id})">Finalizar</a></td>
 		</c:if>
 		<c:if test="${task.finalizada eq true}">
 			<td>Finalizada</td>

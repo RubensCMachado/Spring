@@ -58,7 +58,10 @@ public class TasksController {
 		
 //		return "tasks/get-tasks";
 //		return "tasks/get-tasks-ajax";
-		return "tasks/get-tasks-ajax2";
+//		return "tasks/get-tasks-ajax2";
+//		return "tasks/get-tasks-ajax3";
+		return "tasks/get-tasks-ajax4";
+				
 	}
 	
 	@RequestMapping("excluitask")
@@ -91,10 +94,12 @@ public class TasksController {
 		//return "forward:tasks/get-tasks";
 	}
 	
-	@ResponseBody
+//	@ResponseBody // Quando usar model, não usar Response body, pois gera conflito
 	@RequestMapping("finalizatask")
-	public void finaliza(Long id) {
+	public String finaliza(Long id, Model model) {
 		dao.finaliza(id);
+		model.addAttribute("task",dao.getById(id));
+		return "tasks/data-finalizada2";
 	}
 	
 }
